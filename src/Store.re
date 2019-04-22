@@ -163,12 +163,6 @@ let reducer = (action, state) =>
         state.playGenerated ? state.generatedMattrix[id][playingRow] : state.matrix[id][playingRow],
         0.3
       );
-    switch (state.playGenerated) {
-      | true =>
-        Synth.playNote(state.generatedMattrix[id][playingRow], 0.05);
-      | false =>
-        Synth.playNote(state.matrix[id][playingRow], 0.05);
-    };
     ReasonReact.Update({
       ...state,
       playingRow,
