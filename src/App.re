@@ -14,30 +14,37 @@ let make = (_children) => {
     self.send(Shutdown);
   },
   render: ({ state, send }) =>
-    <div>
-      <RepeatButton
-        isActive=state.repeat
-        onClick=(_ => send(UpdateRepeat(!state.repeat)))
-      />
-      <TrainButton
-        onClick=(_ => send(Train))
-      />
-      <PlayGeneratedButton
-        isActive=state.playGenerated
-        onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))
-      />
+    <div className=Styles.app>
+      <div className=Styles.buttons>
+        <RepeatButton
+          isActive=state.repeat
+          onClick=(_ => send(UpdateRepeat(!state.repeat)))
+        />
+        <TrainButton
+          onClick=(_ => send(Train))
+        />
+        <PlayGeneratedButton
+          isActive=state.playGenerated
+          onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))
+        />
+      </div>
       {switch (state.playGenerated) {
       | false =>
       <Grid
         matrix=state.matrix[state.activeMatrixId]
-        onDotClick=((x, y) => send(UpdateMatrixPoint(x, y)))
+        onDotClick=((x, y) => switch(state.playGenerated) {
+          | true => ()
+          | false => send(UpdateMatrixPoint(x, y))
+          })
         playingRow=state.playingRow
+        isGenerated=false
       />
       | true =>
       <Grid
         matrix=state.generatedMattrix[state.activeMatrixId]
         onDotClick=((_, _) => ())
         playingRow=state.playingRow
+        isGenerated=true
       />
       }}
       <GridSelect

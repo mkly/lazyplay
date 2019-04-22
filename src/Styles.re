@@ -1,16 +1,37 @@
 open Css;
 
+let app = style([
+  fontFamily("sans-serif")
+]);
+
 let grid = style([
   display(grid),
-  gridTemplateColumns([px(50), px(50), px(50), px(50), px(50), px(50), px(50), px(50)]),
-  gridTemplateRows([px(50), px(50), px(50), px(50), px(50), px(50), px(50)]),
-  gridColumnGap(px(6)),
-  gridRowGap(px(6))
+  gridTemplateColumns([pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0)]),
+  gridTemplateRows([pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0), pct(12.0)]),
+  gridColumnGap(pct(0.5)),
+  gridRowGap(pct(0.5)),
+  position(absolute),
+  width(pct(100.0)),
+  height(pct(100.0)),
+]);
+
+let gridSpacing = style([
+  paddingBottom(pct(100.0))
+]);
+
+let gridContainer = style([
+  position(relative),
+  maxWidth(px(500))
 ]);
 
 let dot = style([
   backgroundColor(blue),
   border(px(1), solid, black)
+]);
+
+let dotGenerated = style([
+  backgroundColor(lightblue),
+  border(px(1), solid, darkgrey)
 ]);
 
 let dotActive = merge([
@@ -38,7 +59,8 @@ let gridSelect = style([
   display(flexBox),
   flexDirection(row),
   justifyContent(center),
-  width(px(400)),
+  maxWidth(px(400)),
+  width(pct(100.0)),
   marginTop(px(20))
 ]);
 
@@ -58,62 +80,32 @@ let gridSelectItemActive = merge([
   ])
 ]);
 
-let repeatButton = style([
-  backgroundColor(grey),
-  border(px(1), solid, darkgrey),
-  width(px(140)),
-  height(px(40)),
-  marginBottom(px(10))
+let buttons = style([
+  display(flexBox),
+  justifyContent(spaceAround),
+  marginBottom(px(20)),
+  marginTop(px(20))
 ]);
 
-let repeatButtonActive = merge([
-  repeatButton,
+let button = style([
+  width(pct(30.0)),
+  outline(px(0), solid, transparent),
+  border(px(4), solid, darkgrey),
+  padding(px(4)),
+  textAlign(center)
+]);
+
+let buttonActive = merge([
+  button,
   style([
-    backgroundColor(red),
-    color(white),
-    border(px(1), solid, darkred)
+    borderColor(orange),
   ])
 ]);
 
-let playGeneratedButton = style([
-  backgroundColor(grey),
-  border(px(1), solid, darkgrey),
-  width(px(140)),
-  height(px(40)),
-  marginBottom(px(10))
-]);
-
-let playGeneratedButtonActive = merge([
-  playGeneratedButton,
-  style([
-    backgroundColor(olive),
-    color(white),
-    border(px(1), solid, white)
-  ])
-]);
-
-let muteButton = style([
-  backgroundColor(grey),
-  border(px(1), solid, darkgrey),
-  width(px(140)),
-  height(px(40)),
-  marginBottom(px(10))
-]);
-
-let muteButtonActive = merge([
-  playGeneratedButton,
-  style([
-    backgroundColor(olive),
-    color(white),
-    border(px(1), solid, white)
-  ])
-]);
-
-let trainButton = style([
-  backgroundColor(purple),
-  color(white),
-  border(px(1), solid, goldenrod),
-  width(px(140)),
-  height(px(40)),
-  marginBottom(px(40))
-]);
+let repeatButton = button;
+let repeatButtonActive = buttonActive;
+let playGeneratedButton = button;
+let playGeneratedButtonActive = buttonActive;
+let muteButton = button;
+let muteButtonActive = buttonActive;
+let trainButton = button;

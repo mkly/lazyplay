@@ -5,9 +5,9 @@ let make = (~isActive=false, ~onClick, _children) => {
   render: _self => {
     let className =
       switch (isActive) {
-        | true => Styles.repeatButtonActive
-        | false => Styles.repeatButton
+        | false => Styles.repeatButtonActive
+        | true => Styles.repeatButton
         };
-    <div className onClick>{ReasonReact.string("Repeat")}</div>
+    <button className onClick>{ReasonReact.string("Repeat")}</button>
   }
 };
