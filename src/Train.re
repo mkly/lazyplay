@@ -52,7 +52,7 @@ let rec chainToMatrix = (acc, chain, i) =>
 
 let rec getLongResult = states => {
   let chain = getChain(states, 4)##walk();
-  switch (Array.length(chain) > 12) {
+  switch (Array.length(chain) > 3) {
     | true =>
       chainToMatrix(Array.make_matrix(8, 7, 0), Array.to_list(chain), 0);
     | false =>
