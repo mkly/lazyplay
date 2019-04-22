@@ -3,7 +3,8 @@ open Css;
 let app = style([
   fontFamily("sans-serif"),
   maxWidth(px(500)),
-  margin(auto)
+  margin(auto),
+  marginBottom(px(40))
 ]);
 
 let grid = style([
@@ -58,7 +59,9 @@ let dotPlayingAndActive = merge([
 ]);
 
 let gridSelectContainer = style([
-  maxWidth(px(500))
+  maxWidth(px(500)),
+  marginTop(px(-40)),
+  position(relative)
 ]);
 
 let gridSelect = style([
