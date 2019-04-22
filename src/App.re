@@ -15,18 +15,20 @@ let make = (_children) => {
   },
   render: ({ state, send }) =>
     <div className=Styles.app>
-      <div className=Styles.buttons>
-        <RepeatButton
-          isActive=state.repeat
-          onClick=(_ => send(UpdateRepeat(!state.repeat)))
-        />
-        <TrainButton
-          onClick=(_ => send(Train))
-        />
-        <PlayGeneratedButton
-          isActive=state.playGenerated
-          onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))
-        />
+      <div className=Styles.buttonsContainer>
+        <div className=Styles.buttons>
+          <RepeatButton
+            isActive=state.repeat
+            onClick=(_ => send(UpdateRepeat(!state.repeat)))
+          />
+          <TrainButton
+            onClick=(_ => send(Train))
+          />
+          <PlayGeneratedButton
+            isActive=state.playGenerated
+            onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))
+          />
+        </div>
       </div>
       {switch (state.playGenerated) {
       | false =>

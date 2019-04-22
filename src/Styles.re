@@ -1,7 +1,9 @@
 open Css;
 
 let app = style([
-  fontFamily("sans-serif")
+  fontFamily("sans-serif"),
+  maxWidth(px(500)),
+  margin(auto)
 ]);
 
 let grid = style([
@@ -55,13 +57,18 @@ let dotPlayingAndActive = merge([
   ])
 ]);
 
+let gridSelectContainer = style([
+  maxWidth(px(500))
+]);
+
 let gridSelect = style([
   display(flexBox),
   flexDirection(row),
-  justifyContent(center),
+  justifyContent(spaceAround),
   maxWidth(px(400)),
   width(pct(100.0)),
-  marginTop(px(20))
+  marginLeft(auto),
+  marginRight(auto)
 ]);
 
 let gridSelectItem = style([
@@ -78,6 +85,10 @@ let gridSelectItemActive = merge([
   style([
     backgroundColor(orange)
   ])
+]);
+
+let buttonsContainer = style([
+  maxWidth(px(500))
 ]);
 
 let buttons = style([
