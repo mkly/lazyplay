@@ -8,6 +8,6 @@ let make = (~isActive=false, ~onClick, _children) => {
         | false => Styles.repeatButtonActive
         | true => Styles.repeatButton
         };
-    <button className onClick>{ReasonReact.string("Repeat")}</button>
+    <button className onClick>{ReasonReact.string("Loop")}</button>
   }
 };
