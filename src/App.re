@@ -22,12 +22,12 @@ let make = (_children) => {
             isActive=state.repeat
             onClick=(_ => send(UpdateRepeat(!state.repeat)))
           />
+          <TrainButton
+            onClick=(_ => send(Train))
+          />
           <PlayGeneratedButton
             isActive=state.playGenerated
-            onClick=(_ => {
-              send(UpdatePlayGenerated(!state.playGenerated))
-              send(Train)
-            })
+            onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))
           />
         </div>
       </div>

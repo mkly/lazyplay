@@ -8,6 +8,6 @@ let make = (~isActive=false, ~onClick, _children) => {
         | true => Styles.playGeneratedButtonActive
         | false => Styles.playGeneratedButton
         };
-    <button className onClick>{ReasonReact.string("Play Generated")}</button>
+    <button className onClick>{ReasonReact.string("Show Generated")}</button>
   }
 };

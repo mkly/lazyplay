@@ -5,8 +5,10 @@ let make = _children => {
   render: _self => {
     <div>
       <h1>{ReasonReact.string("Lazyplay")}</h1>
-      <p>{ReasonReact.string("Lazyplay attempts(poorly) to write a new song from the song you made using a simple ")}<a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">{ReasonReact.string("markov chain")}</a></p>
+      <p>{ReasonReact.string("Lazyplay attempts to play along with the song you made using a simple ")}<a href="https://en.wikipedia.org/wiki/Markov_chain" target="_blank">{ReasonReact.string("markov chain")}</a></p>
       <p>{ReasonReact.string("If you make each section similar, it tends to do a bit better")}</p>
+      <p>{ReasonReact.string("First, create a song by clicking some notes. Then, click \"Train\" and Lazyplay will attempt to play along with what you wrote. Don't like it? Press \"Train\" again and Lazyplay will take another shot.")}</p>
+      <p>{ReasonReact.string("\"Loop\" will stay on one section and \"Show Generated\" will show you what Lazyplay wrote")}</p>
     </div>
   }
 }
