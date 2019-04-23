@@ -15,7 +15,10 @@ let make = (_children) => {
   },
   render: ({ state, send }) =>
     <div className=Styles.app>
-      <Intro/>
+      <Intro
+        isIntroVisible=state.showIntro
+        onShowHideClick=(_ => send(UpdateShowIntro(!state.showIntro)))
+      />
       <div className=Styles.buttonsContainer>
         <div className=Styles.buttons>
           <RepeatButton

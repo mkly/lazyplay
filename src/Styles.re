@@ -4,7 +4,8 @@ let app = style([
   fontFamily("sans-serif"),
   maxWidth(px(500)),
   margin(auto),
-  marginBottom(px(40))
+  marginBottom(px(40)),
+  position(relative)
 ]);
 
 let grid = style([
@@ -154,6 +155,22 @@ let stateSizeSelectButtonActive = merge([
   stateSizeSelectButton,
   style([
     backgroundColor(orange)
+  ])
+]);
+
+let introButton = merge([
+  button,
+  style([
+    width(auto),
+    backgroundColor(transparent),
+    border(px(0), solid, transparent),
+    textDecoration(underline),
+    position(absolute),
+    top(px(13)),
+    right(px(3)),
+    color(hex("a5a5a5")),
+    letterSpacing(pxFloat(0.25)),
+    fontWeight(bold)
   ])
 ]);
 
