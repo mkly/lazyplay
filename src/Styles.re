@@ -116,6 +116,13 @@ let buttonActive = merge([
   ])
 ]);
 
+let buttonDown = merge([
+  button,
+  style([
+    backgroundColor(darkgrey)
+  ])
+]);
+
 let repeatButton = button;
 let repeatButtonActive = buttonActive;
 let playGeneratedButton = button;
