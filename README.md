@@ -1,4 +1,6 @@
-# lazyplay
+# Lazyplay!
+
+**Lazyplay** uses a markov chain to attempt to play along with you. First add some notes, then train Lazyplay and see what happens!
 
 ## Run Project
 
