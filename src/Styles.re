@@ -102,7 +102,7 @@ let buttons = style([
 ]);
 
 let button = style([
-  width(pct(30.0)),
+  width(pct(22.0)),
   outline(px(0), solid, transparent),
   border(px(4), solid, darkgrey),
   padding(px(4)),
@@ -120,6 +120,40 @@ let buttonDown = merge([
   button,
   style([
     backgroundColor(darkgrey)
+  ])
+]);
+
+let stateSizeSelectContainer = style([
+  width(pct(22.0))
+]);
+
+let stateSizeText = style([
+  fontSize(px(12)),
+  textAlign(center),
+  lineHeight(px(16))
+]);
+
+let stateSizeSelect = style([
+  width(pct(100.0)),
+  display(flexBox),
+  justifyContent(spaceAround),
+  border(px(4), solid, darkgrey),
+  boxSizing(borderBox)
+]);
+
+let stateSizeSelectButton = merge([
+  button,
+  style([
+    height(px(25)),
+    width(pct(25.0)),
+    border(px(0), solid, transparent)
+  ])
+]);
+
+let stateSizeSelectButtonActive = merge([
+  stateSizeSelectButton,
+  style([
+    backgroundColor(orange)
   ])
 ]);
 

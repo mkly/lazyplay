@@ -25,6 +25,10 @@ let make = (_children) => {
           <TrainButton
             onClick=(_ => send(Train))
           />
+          <StateSizeSelect
+            onClick=((size, _) => send(UpdateSize(size)))
+            size=state.size
+          />
           <PlayGeneratedButton
             isActive=state.playGenerated
             onClick=(_ => send(UpdatePlayGenerated(!state.playGenerated)))

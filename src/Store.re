@@ -5,6 +5,7 @@ type state = {
   playGenerated: bool,
   repeat: bool,
   playingRow: int,
+  size: int,
   intervalId: Js.Nullable.t(Js.Global.intervalId)
 };
 
@@ -97,6 +98,7 @@ let initialState = () => {
   playingRow: 0,
   playGenerated: false,
   repeat: true,
+  size: 4,
   intervalId: Js.Nullable.null
 };
 type action =
@@ -106,6 +108,7 @@ type action =
   | UpdateMatrixPoint(int,int)
   | UpdateRepeat(bool)
   | UpdatePlayGenerated(bool)
+  | UpdateSize(int)
   | Train
   | Init(Js.Global.intervalId)
   | Shutdown
@@ -139,8 +142,13 @@ let reducer = (action, state) =>
       ...state,
       playGenerated
     });
+  | UpdateSize(size) =>
+    ReasonReact.Update({
+      ...state,
+      size
+    });
   | Train =>
-    let generatedMattrix = Train.train(Array.to_list(state.matrix));
+    let generatedMattrix = Train.train(Array.to_list(state.matrix), state.size);
     ReasonReact.Update({
       ...state,
       generatedMattrix

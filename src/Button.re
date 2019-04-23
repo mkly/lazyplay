@@ -19,7 +19,6 @@ let make = (~className, ~onClick, _children) => {
       | InActive => ReasonReact.Update({...state, mouseDown: false })
     },
   render: self => {
-    Js.log(self.state)
     let newClassName =
       switch (self.state.mouseDown) {
         | true => String.concat(" ", [className, Styles.buttonDown])

@@ -50,24 +50,24 @@ let rec chainToMatrix = (acc, chain, i) =>
         }
     };
 
-let rec getLongResult = states => {
-  let chain = getChain(states, 4)##walk();
+let rec getLongResult = (states, stateSize) => {
+  let chain = getChain(states, stateSize)##walk();
   switch (Array.length(chain) > 3) {
     | true =>
       chainToMatrix(Array.make_matrix(8, 7, 0), Array.to_list(chain), 0);
     | false =>
-      getLongResult(states);
+      getLongResult(states, stateSize);
     };
 }
 
-let train = (matrix) => {
+let train = (matrix, stateSize) => {
   let state = tokenize([], matrix);
   let states = Array.concat([state, state, state, state]);
   let learnedMatrix = Array.make(4, Array.make_matrix(8, 7, 0))
-  learnedMatrix[0] = getLongResult(states);
-  learnedMatrix[1] = getLongResult(states);
-  learnedMatrix[2] = getLongResult(states);
-  learnedMatrix[3] = getLongResult(states);
+  learnedMatrix[0] = getLongResult(states, stateSize);
+  learnedMatrix[1] = getLongResult(states, stateSize);
+  learnedMatrix[2] = getLongResult(states, stateSize);
+  learnedMatrix[3] = getLongResult(states, stateSize);
 
   learnedMatrix;
 };
