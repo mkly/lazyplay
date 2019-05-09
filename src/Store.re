@@ -99,7 +99,7 @@ let initialState = () => {
   playingRow: 0,
   playGenerated: false,
   repeat: true,
-  size: 4,
+  size: 2,
   showIntro: true,
   intervalId: Js.Nullable.null
 };
